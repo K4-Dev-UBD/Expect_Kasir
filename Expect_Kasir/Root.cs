@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Expect_Kasir.services;
 
 namespace Expect_Kasir
 {
@@ -7,7 +11,8 @@ namespace Expect_Kasir
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"{equalBarrier()} Dapatkan diskon 10%, setiap min belanja Rp 150000 {equalBarrier()}");
+            /*new ServicePostgres().connectToDB();*/
+            Console.WriteLine($"{equalBarrier()} Dapatkan diskon 30%, setiap min belanja Rp 150000 {equalBarrier()}");
             showMenu();
         }
 
@@ -90,9 +95,10 @@ namespace Expect_Kasir
 
                         if (totalPrice >= 150000)
                         {
-                            totalPrice *= 0.1;
+                            Console.WriteLine($"\nSelamat anda mendapatkan diskon sebesar Rp.{totalPrice * 0.3}");
+                            Console.WriteLine($"\nDari pembelian seharga: Rp.{totalPrice}");
+                            totalPrice = totalPrice - (totalPrice * 0.3);
 
-                            Console.WriteLine("\nSelamat anda mendapatkan diskon");
                             Console.WriteLine($"\nTotal harga pembelian: Rp.{totalPrice}");
                             Console.WriteLine($"\n{equalBarrier()}{equalBarrier()}{equalBarrier()}\n");
                             Console.ReadKey(true);

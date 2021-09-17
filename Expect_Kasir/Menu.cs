@@ -11,13 +11,11 @@ namespace Expect_Kasir
         private string name;
         private double price;
         private int orderCount = 0;
-        private static int count = 0;
 
         public Menu(string name, double price)
         {
             this.name = name;
             this.price = price;
-            count++;
         }
 
         public string getName()
